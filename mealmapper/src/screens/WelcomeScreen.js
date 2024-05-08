@@ -14,7 +14,9 @@ export default function WelcomeScreen() {
     const navigation = useNavigation();
     return (
         <View style={{backgroundColor: '#ef0000', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>Welcome to MealMapper</Text>
+            <Image source = {require("../../assets/images/plateofhealthyfood.png")}/>
+            <Text>Welcome MealMapper's friend!</Text>
+
         </View>
     );
 }

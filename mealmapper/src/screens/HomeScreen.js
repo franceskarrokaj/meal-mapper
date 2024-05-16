@@ -129,7 +129,11 @@ export default function HomeScreen() {
                         placeholder='Search your favorite food'
                         value={searchText}
                         onChangeText={setSearchText}
-                        style={{ flex: 1, marginLeft: 10, color: 'black'}}
+                        style={{ flex: 1, 
+                            marginLeft: 20, 
+                            color:'black',
+                            fontWeight: 'bold'
+                        }}
                     />
                     </View>
                     {/* Categories */}
@@ -142,6 +146,7 @@ export default function HomeScreen() {
                             />
                         )}
                     </View>
+                    {/*Recepies meal*/}
 
                 </ScrollView>
             </SafeAreaView>

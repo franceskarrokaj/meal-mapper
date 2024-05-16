@@ -29,7 +29,7 @@ export default function Categories({
                     onPress={() => handleChangeCategory(category.strCategory)}
                     style={{
                         borderRadius: 10,
-                        backgroundColor: isActive ? 'red' : 'gray',
+                        backgroundColor: isActive ? 'orange' : 'gray',
                     }}
                 >
                     <View style={{padding: 6, borderRadius: 1}}>   

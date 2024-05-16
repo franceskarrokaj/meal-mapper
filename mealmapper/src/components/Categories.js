@@ -1,6 +1,7 @@
 import React, { act } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { categoryData } from '../constants';
+import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function Categories(activeCategory, setActiveCategory, handleChangeCategory) {
     return (
@@ -21,11 +22,18 @@ export default function Categories(activeCategory, setActiveCategory, handleChan
                         <TouchableOpacity
                             key={index}
                             className="flex items-center space-y-1"
-                        
-                        ></TouchableOpacity>
-
+                        >
+                        <Image source = {{
+                                url: category.strCategoryThumb,   
+                            }}
+                            style={{
+                                width:hp(6),
+                                height:hp(6),
+                            }}
+                            className="rounded-full"
+                        />
+                        </TouchableOpacity>
                     );
-
                 })}
             </ScrollView>
             <Text>Categories</Text>

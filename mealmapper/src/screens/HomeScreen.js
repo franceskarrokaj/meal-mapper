@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { SearchBar } from 'react-native-elements';
 import axios from 'axios';
-import makeRequest from '../services/spoonacular';
+import Categories from '../components/Categories';
 
 export default function HomeScreen() {
     const [searchText, setSearchText] = useState('');
@@ -91,16 +91,10 @@ export default function HomeScreen() {
                         style={{ flex: 1, marginLeft: 10, color: 'black'}}
                     />
                     </View>
-
-                    {/* {datas && datas.map((data) => {
-                        <Image
-                            source={{
-                                uri: data.image
-                            }}
-                        />
-                    })} */}
-
                     {/* Categories */}
+                    <View>
+                        <Categories />
+                    </View>
 
                 </ScrollView>
             </SafeAreaView>

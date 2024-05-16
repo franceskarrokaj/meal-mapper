@@ -77,10 +77,4 @@ export const categoryData = [
         strCategoryDescription: "Breakfast is the first meal of the day.",
         strCategoryThumb: "https://www.themealdb.com/images/category/breakfast.png",
     },
-    {
-        idCategory: "14",
-        strCategory: "Bread",
-        strCategoryDescription: "Bread is a staple food prepared from a dough of flour and water, usually by baking.",
-        strCategoryThumb: "https://www.themealdb.com/images/category/bread.png",
-    },
 ]

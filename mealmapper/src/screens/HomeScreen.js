@@ -6,9 +6,50 @@ import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { SearchBar } from 'react-native-elements';
 import axios from 'axios';
 import Categories from '../components/Categories';
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 export default function HomeScreen() {
     const [searchText, setSearchText] = useState('');
+    const [meals, setMeals] = useState([]);
+    const [activeCategory, setActiveCategory] = useState('Beef');
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getRecipes();
+        getCategories();
+    }, []);
+
+    const handleChangeCategory = (category) => {
+        getRecipes(category);
+        setActiveCategory(category);
+        setMeals([]);
+    }
+
+    const getCategories = async () => {
+        try {
+            const response = await axios.get(
+                'https://www.themealdb.com/api/json/v1/1/categories.php'
+            );
+            if (response && response.data) {
+                setCategories(response.data.categories);
+                console.log(response.data.categories);
+            }
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    };
+
+    const getRecipes = async (category = 'Beef') => { 
+        try {
+            const response = await axios.get(
+                "https://www.themealdb.com/api/json/v1/1/filter.php?c=$(category)"
+            );
+
+        } catch (error) {
+            console.error(error.message);
+        }
+    };
 
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -93,7 +134,13 @@ export default function HomeScreen() {
                     </View>
                     {/* Categories */}
                     <View>
-                        <Categories />
+                        {categories.length > 0 && (
+                            <Categories
+                                categories={categories}
+                                activeCategory={activeCategory}
+                                handleChangeCategory={handleChangeCategory}
+                            />
+                        )}
                     </View>
 
                 </ScrollView>

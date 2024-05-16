@@ -41,6 +41,46 @@ export const categoryData = [
         strCategoryDescription: "Miscellaneous is the category that includes all the recipes that do not fit in the other categories.",
         strCategoryThumb: "https://www.themealdb.com/images/category/miscellaneous.png",
     },
-
-
+    {
+        idCategory: "8",
+        strCategory: "Lamb",
+        strCategoryDescription: "Lamb, hogget, and mutton are the meat of domestic sheep.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/lamb.png",
+    },
+    {
+        idCategory: "9",
+        strCategory: "Goat",
+        strCategoryDescription: "Goat meat or goat's meat is the meat of the domestic goat.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/goat.png",
+    },
+    {
+        idCategory: "10",
+        strCategory: "Desert",
+        strCategoryDescription: "Dessert is a course that concludes a meal.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/desert.png",
+    },
+    {
+        idCategory: "11",
+        strCategory: "Starter",
+        strCategoryDescription: "A starter is an item of food that is served before the main course of a meal.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/starter.png",
+    },
+    {
+        idCategory: "12",
+        strCategory: "Side",
+        strCategoryDescription: "A side dish, is a food item that accompanies the entrée or main course at a meal.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/side.png",
+    },
+    {
+        idCategory: "13",
+        strCategory: "Breakfast",
+        strCategoryDescription: "Breakfast is the first meal of the day.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/breakfast.png",
+    },
+    {
+        idCategory: "14",
+        strCategory: "Bread",
+        strCategoryDescription: "Bread is a staple food prepared from a dough of flour and water, usually by baking.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/bread.png",
+    },
 ]

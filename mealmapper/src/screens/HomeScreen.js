@@ -9,24 +9,6 @@ import makeRequest from '../services/spoonacular';
 
 export default function HomeScreen() {
     const [searchText, setSearchText] = useState('');
-    // const [isLoaded, setIsLoaded] = useState(false);
-    // const [datas, setDatas] = useState();
-
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         const results = await makeRequest("pasta");
-    //         setIsLoaded(true)
-    //         setDatas(results)
-    //         console.log("TESR", results)
-
-    //     }
-
-    //     if (!isLoaded) {
-    //         fetchData()
-    //     }
-        
-    //  }, [isLoaded])
 
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>

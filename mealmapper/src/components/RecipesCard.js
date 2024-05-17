@@ -13,6 +13,7 @@ export default function RecipesCard ({index, navigation, items}) {
                     paddingRight: isEven ? 8 : 0, 
                 }}
                 className="flex justify-center nb-4 space-y-1"
+                onPress={() => navigation.navigation("RecipeDetails",{...items})}
             >
                 <Image
                     source = {{
@@ -45,8 +46,23 @@ export default function RecipesCard ({index, navigation, items}) {
                         y: 1,
                     }}
                 />
+                <Text 
+                    style={{
+                        position: 'absolute',
+                        bottom: 10,
+                        left: 10,
+                        color: 'white',
+                        fontSize: 16,
+                        fontWeight: 'bold',
+                    }}
+                
+                > {
+                    items.strMeal.Length > 20 
+                    ? items.strMeal.slice(0, 20) + "..." 
+                    : items.strMeal
+                }
+                </Text>
             </Pressable>
-            <Text>Recipes</Text>
         </View>
-    )
+    );
 }

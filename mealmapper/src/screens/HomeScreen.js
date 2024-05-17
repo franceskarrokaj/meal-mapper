@@ -8,6 +8,7 @@ import axios from 'axios';
 import Categories from '../components/Categories';
 import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 import Recipes from '../components/Recipes';
+import RecipeDetailsScreen from './RecipeDetailsScreen';
 
 export default function HomeScreen() {
     const [searchText, setSearchText] = useState('');
@@ -153,7 +154,6 @@ const getRecipes = async (category = 'Beef') => {
                     <View>
                         <Recipes meals={meals} categories={categories} />
                     </View>
-
                 </ScrollView>
             </SafeAreaView>
         </View>

@@ -146,7 +146,10 @@ export default function HomeScreen() {
                             />
                         )}
                     </View>
-                    {/*Recepies meal*/}
+                    {/*Recipes meal*/}
+                    <View>
+                        <Recipes meals={meals} categories={categories} />
+                    </View>
 
                 </ScrollView>
             </SafeAreaView>

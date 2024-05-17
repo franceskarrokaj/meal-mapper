@@ -7,6 +7,7 @@ import { SearchBar } from 'react-native-elements';
 import axios from 'axios';
 import Categories from '../components/Categories';
 import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
+import Recipes from '../components/Recipes';
 
 export default function HomeScreen() {
     const [searchText, setSearchText] = useState('');
@@ -40,16 +41,18 @@ export default function HomeScreen() {
         }
     };
 
-    const getRecipes = async (category = 'Beef') => { 
-        try {
-            const response = await axios.get(
-                "https://www.themealdb.com/api/json/v1/1/filter.php?c=$(category)"
-            );
-
-        } catch (error) {
-            console.error(error.message);
+const getRecipes = async (category = 'Beef') => { 
+    try {
+        const response = await axios.get(
+            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+        );
+        if (response && response.data) {
+            setMeals(response.data.meals);
         }
-    };
+    } catch (error) {
+        console.error(error.message);
+    }
+};
 
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>

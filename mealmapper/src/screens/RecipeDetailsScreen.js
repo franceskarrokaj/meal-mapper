@@ -43,7 +43,6 @@ export default function RecipeDetailsScreen(props) {
                 indexes.push(i);
             }
         }
-        return indexes;
     };
 
     return (
@@ -53,7 +52,7 @@ export default function RecipeDetailsScreen(props) {
             }}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
-                paddingBottom: 20,
+                paddingBottom: 30,
             }} 
         >
             <StatusBar style='white'/>
@@ -73,7 +72,7 @@ export default function RecipeDetailsScreen(props) {
                     }}
                 />
             </View>
-            <Text>RecipeDetails</Text>
+            <Text> RecipeDetailsScreen </Text>
         </ScrollView>
     );
 }

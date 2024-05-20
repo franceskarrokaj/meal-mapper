@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export default function RecipesCard ({index, navigation, item}) {
     let isEven = index % 2 == 0;
+    
     return (
         <View>
             <Pressable

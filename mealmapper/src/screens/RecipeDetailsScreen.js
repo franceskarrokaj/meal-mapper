@@ -87,6 +87,7 @@ export default function RecipeDetailsScreen(props) {
                         <AntDesign name='heart' size={24} color={isFavorite ? "red" : "blue"}/>
                     </TouchableOpacity>
                 </View>
+                {/* Ingredients */}
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
                     <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>

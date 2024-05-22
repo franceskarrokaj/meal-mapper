@@ -150,7 +150,9 @@ const getRecipes = async (category = 'Beef') => {
                         )}
                     </View>
                     {/*Recipes meal*/}
-                    <View>
+                    <View style={{
+                        paddingLeft: "20px"
+                        }}>
                         <Recipes meals={meals} categories={categories} />
                     </View>
                 </ScrollView>

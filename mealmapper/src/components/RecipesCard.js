@@ -7,7 +7,11 @@ export default function RecipesCard ({index, navigation, item}) {
     let isEven = index % 2 == 0;
     
     return (
-        <View>
+        <View style={{
+            paddingLeft: isEven ? 8 : 0,
+            paddingRight: isEven ? 0 : 8,
+            paddingBottom: 8,
+        }}>
             <Pressable
                 style = {{
                     width: "100%",
@@ -23,7 +27,7 @@ export default function RecipesCard ({index, navigation, item}) {
                     style={{
                         width: "100%",
                         height: hp(20), // Multiply the height by 2
-                        borderRadius: 25,
+                        borderRadius: 15,
                     }}
                         className="bg-black/5 relative"
                 />

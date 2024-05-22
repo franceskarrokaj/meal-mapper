@@ -64,7 +64,6 @@ export default function RecipeDetailsScreen(props) {
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ paddingBottom: 30 }}
         >
-            <SafeAreaView>
             <StatusBar style='white' />
 
             <View style={{ flex: 1, alignItems: 'center' }}>
@@ -79,14 +78,14 @@ export default function RecipeDetailsScreen(props) {
                     }}
                 />
                     <TouchableOpacity
-                        style={{ position: 'absolute', top: 10, left: 10 }}
+                        style={{ position: 'absolute', top: 60, left: 10 }}
                         onPress={() => navigation.goBack()}
                     >
-                        <AntDesign name="arrowleft" size={24} color="red" />
+                        <AntDesign name="arrowleft" size={30} color="red" />
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                        style={{ position: 'absolute', top: 10, right: 10 }}
+                        style={{ position: 'absolute', top: 50, right: 10 }}
                         onPress={() => setIsFavorite(!isFavorite)}
                     >
                         <View style={{
@@ -185,9 +184,28 @@ export default function RecipeDetailsScreen(props) {
                                 })}
                             </View>
                         </View>
+                        {/*Instructions*/}
+                        <View className="space-y-4 p-4">
+                            <Text
+                                className="font-bold flex-1 text-neutral-700"
+                                style={{
+                                    fontSize: hp(2),
+                                    fontWeight: 'bold',
+                                    marginTop: 10,
+                                }}    
+                            >
+                                Instructions
+                            </Text >
+                            <Text className="text-neutral-700 " style={{
+                                fontSize: hp(1.7),
+                                paddingLeft: 7
+
+                            }}
+                            > 
+                            {meal?.strInstructions}</Text>
+                        </View>
                     </View>
                 )}
-            </SafeAreaView>
         </ScrollView>
     );
 }

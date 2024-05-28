@@ -7,13 +7,16 @@ import {
 } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import { Animated } from 'react-native';
+import Animated, {FadeIn, FadeInDown} from 'react-native-reanimated';
 
 export default function WelcomeScreen() {
     const animation = useRef(null);
     const navigation = useNavigation();
     return (
-        <View style={{backgroundColor: '#ef0000', flex: 1, justifyContent: 'center', alignItems: 'center'}} >
+        <Animated.View 
+            style={{backgroundColor: '#ef0000', flex: 1, justifyContent: 'center', alignItems: 'center'}} 
+            entering={FadeInDown.delay(200).duration(700).springify().damping(12)}
+        >
             <Image
             source = {require("../../assets/images/login.png")}
             style = {{
@@ -24,7 +27,9 @@ export default function WelcomeScreen() {
             />
             <StatusBar style='light' />
             {/*Logo*/}
-            <View>
+            <Animated.View
+                entering={FadeInDown.delay(300).duration(700).springify().damping(15)}
+            >
                 <LottieView
                     autoPlay ref={animation}
                     style = {{
@@ -33,20 +38,22 @@ export default function WelcomeScreen() {
                 }}
                 source={require('../../assets/images/login.png')}
                 />
-            </View>
+            </Animated.View>
                 {/*Title*/}
             <View className='flex items-center space-y-2'>
                 <Text className='text-white font-extrabold tracking-widest'
                 style={{
+                    fontWeight: 'bold',
                     fontSize: hp('3.5%'),
-                    width: wp('45%'),
+                    width: wp('35%'),
                     height: hp('50%'),
+                    color: '#fff',
                 }}
                 >
                     Meal Mapper!
                 </Text>
 
-                <Text className='text white tracking-widest font-medium'
+                <Text className='text white tracking-widest font-light'
                     style={{
                         fontSize: hp('2.5%'),
                     }}                
@@ -70,6 +77,6 @@ export default function WelcomeScreen() {
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </Animated.View>
     );
 }

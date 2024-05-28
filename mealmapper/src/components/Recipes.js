@@ -5,11 +5,16 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native'
 import MasonryList from '@react-native-seoul/masonry-list';
 import Loading from './Loading';
+import Animated, {FadeIn, FadeInDown} from 'react-native-reanimated';
+
 
 export default function Recipes ({meals, categories}) {
     const navigation = useNavigation();
     return (
-        <View className="mx-4 space-y-4">
+        <Animated.View 
+            className="mx-4 space-y-4"
+            entering={FadeInDown.delay(200).duration(700).springify().damping(12)}
+        >
             <Text 
                 style = {{
                 fontSize: hp(2.5),
@@ -18,7 +23,9 @@ export default function Recipes ({meals, categories}) {
             >
                 {meals && meals.length } Recipes
             </Text>
-            <View>
+            <Animated.View
+                entering={FadeInDown.delay(200).duration(700).springify().damping(12)}
+            >
                 { (categories && categories.length > 0) && (meals && meals.length > 0) ? (
                         <MasonryList
                             data={meals}
@@ -34,7 +41,7 @@ export default function Recipes ({meals, categories}) {
                         <Loading size = "large" className="mt-20"/>
                     )
                 }
-            </View>
-        </View>
+            </Animated.View>
+        </Animated.View>
     )
 }

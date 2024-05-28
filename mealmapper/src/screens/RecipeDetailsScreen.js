@@ -6,6 +6,7 @@ import axios from 'axios';
 import { AntDesign } from '@expo/vector-icons';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Loading from '../components/Loading';
+import  Animated , {FadeInDown} from 'react-native-reanimated';
 
 export default function RecipeDetailsScreen(props) {
 
@@ -60,13 +61,15 @@ export default function RecipeDetailsScreen(props) {
 
     return (
         <ScrollView
-            style={{ flex: 1 }}
+            style={{ flex: 1 , backgroundColor: 'white'}}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ paddingBottom: 30 }}
         >
             <StatusBar style='white' />
 
-            <View style={{ flex: 1, alignItems: 'center' }}>
+            <Animated.View style={{ flex: 1, alignItems: 'center' }}
+                entering={FadeInDown.delay(200).duration(700).springify().damping(12).delay(200)}
+            >
                 <View style={{ width: "100%", alignItems: 'center', position: 'relative' }}>
                 <Image
                     source = {{
@@ -77,12 +80,22 @@ export default function RecipeDetailsScreen(props) {
                         height: hp('40%'),
                     }}
                 />
-                    <TouchableOpacity
-                        style={{ position: 'absolute', top: 60, left: 10 }}
-                        onPress={() => navigation.goBack()}
-                    >
-                        <AntDesign name="arrowleft" size={30} color="red" />
-                    </TouchableOpacity>
+                <TouchableOpacity
+                    style={{ position: 'absolute', top: 60, left: 10 }}
+                    onPress={() => navigation.goBack()}
+                >
+                    <View style={{
+                        width: 40, // or any size you want
+                        height: 40, // or any size you want
+                        borderRadius: 20, // half of your size
+                        backgroundColor: 'white', // or any color you want
+                        justifyContent: 'center', // center the icon vertically
+                        alignItems: 'center', // center the icon horizontally
+                        padding: 8, // adjust this value as needed
+                    }}>
+                        <AntDesign name="arrowleft" size={24} color="red" />
+                    </View>
+                </TouchableOpacity>
 
                     <TouchableOpacity
                         style={{ position: 'absolute', top: 50, right: 10 }}
@@ -100,21 +113,22 @@ export default function RecipeDetailsScreen(props) {
                         </View>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </Animated.View>
                 {/* Ingredients */}
 
                 {
                     isLoading ? (
                         <Loading size="large" />
                     ) : (
-                        <View style={{
+                        <Animated.View style={{
                             borderTopLeftRadius: 50,
                             borderTopRightRadius: 50,
                             paddingTop: hp('3%'),
                             paddingHorizontal: 4,
                             justifyContent: 'space-between',
                             marginTop: -46
-                           }} 
+                           }}
+                           entering={FadeInDown.delay(200).duration(700).springify().damping(12).delay(200)}
                         >
                         <View style={{ justifyContent: 'flex-start', alignItems: 'flex-start', marginTop: 20 }}>
                             <Text style={{ textAlign: 'left', fontSize: hp(3), fontWeight: 'bold' }}>
@@ -204,7 +218,7 @@ export default function RecipeDetailsScreen(props) {
                             > 
                             {meal?.strInstructions}</Text>
                         </View>
-                    </View>
+                    </Animated.View>
                 )}
         </ScrollView>
     );

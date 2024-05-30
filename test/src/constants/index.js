@@ -1,0 +1,80 @@
+export const categoryData = [ 
+    {
+        idCategory: "1",
+        strCategory: "Beef",
+        strCategoryDescription: "Beef is the culinary name for meat from cattle, particularly skeletal muscle.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/beef.png",
+    },
+    {
+        idCategory: "2",
+        strCategory: "Chicken",
+        strCategoryDescription: "Chicken is the most common type of poultry in the world.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/chicken.png",
+    },
+    {
+        idCategory: "3",
+        strCategory: "Pork",
+        strCategoryDescription: "Pork is the culinary name for the meat of a domestic pig.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/pork.png",
+    },
+    {
+        idCategory: "4",
+        strCategory: "Seafood",
+        strCategoryDescription: "Seafood is any form of sea life regarded as food by humans.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/seafood.png",
+    },
+    {
+        idCategory: "5",
+        strCategory: "Vegan",
+        strCategoryDescription: "Veganism is the practice of abstaining from the use of animal products.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/vegan.png",
+    },
+    {
+        idCategory: "6",
+        strCategory: "Vegetarian",
+        strCategoryDescription: "Vegetarianism is the practice of abstaining from the consumption of meat.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/vegetarian.png",
+    },
+    {
+        idCategory: "7",
+        strCategory: "Miscellaneous",
+        strCategoryDescription: "Miscellaneous is the category that includes all the recipes that do not fit in the other categories.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/miscellaneous.png",
+    },
+    {
+        idCategory: "8",
+        strCategory: "Lamb",
+        strCategoryDescription: "Lamb, hogget, and mutton are the meat of domestic sheep.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/lamb.png",
+    },
+    {
+        idCategory: "9",
+        strCategory: "Goat",
+        strCategoryDescription: "Goat meat or goat's meat is the meat of the domestic goat.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/goat.png",
+    },
+    {
+        idCategory: "10",
+        strCategory: "Desert",
+        strCategoryDescription: "Dessert is a course that concludes a meal.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/desert.png",
+    },
+    {
+        idCategory: "11",
+        strCategory: "Starter",
+        strCategoryDescription: "A starter is an item of food that is served before the main course of a meal.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/starter.png",
+    },
+    {
+        idCategory: "12",
+        strCategory: "Side",
+        strCategoryDescription: "A side dish, is a food item that accompanies the entrée or main course at a meal.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/side.png",
+    },
+    {
+        idCategory: "13",
+        strCategory: "Breakfast",
+        strCategoryDescription: "Breakfast is the first meal of the day.",
+        strCategoryThumb: "https://www.themealdb.com/images/category/breakfast.png",
+    },
+]

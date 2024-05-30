@@ -4,44 +4,23 @@ import { ScrollView, View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidin
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 import { auth } from '../../firebase';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import HomeScreen from './HomeScreen';
-import SignOutScreen from './SignOutScreen';
 
 const LogInScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
 
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            if (user) {
-                //console.log("Logged in with: ", user.email);
-                navigation.replace("SignOut");
-            }
-        });
-        return unsubscribe;
-    }, []);
-
-        const handleSignUp = async () => {
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                console.log("Registered with: ", userCredential.user.email);
-                //navigation.navigate("SignOut");
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-        
-        const handleLogin = async () => {
-            try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                console.log("Logged in with: ", userCredential.user.email);
-                //navigation.navigate("Home");
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+    const handleSignUp = async () => {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        // auth
+        //     .createUserWithEmailAndPassword(email, password)
+        //     .then(userCredential => {
+        //         const user = userCredential.user;
+        //         console.log(user.email);
+        //         //navigation.navigate('Home');
+        //     })
+        //     .catch(error => alert(error.message));
+    };
 
     return (
         <KeyboardAvoidingView
@@ -68,7 +47,7 @@ const LogInScreen = () => {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={handleLogin}
+                    onPress={() => { }}
                     style={styles.button}
                 >
                     <Text style={styles.buttonText}>Login</Text>

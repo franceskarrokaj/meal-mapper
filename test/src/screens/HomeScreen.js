@@ -16,13 +16,10 @@ export default function HomeScreen() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        if (searchText) {
-            getRecipes(undefined, searchText);
-        } else {
-            getRecipes(activeCategory);
-        }
-    }, [searchText]);
-    
+        getRecipes();
+        getCategories();
+    }, []);
+
     const handleChangeCategory = (category) => {
         getRecipes(category);
         setActiveCategory(category);
@@ -44,20 +41,18 @@ export default function HomeScreen() {
         }
     };
 
-    const getRecipes = async (category = 'Beef', searchTerm = '') => {
-        try {
-            let url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
-            if (searchTerm) {
-                url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`;
-            }
-            const response = await axios.get(url);
-            if (response && response.data) {
-                setMeals(response.data.meals);
-            }
-        } catch (error) {
-            console.error(error.message);
+const getRecipes = async (category = 'Beef') => { 
+    try {
+        const response = await axios.get(
+            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+        );
+        if (response && response.data) {
+            setMeals(response.data.meals);
         }
-    };
+    } catch (error) {
+        console.error(error.message);
+    }
+};
 
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>

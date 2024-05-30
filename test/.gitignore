@@ -1,0 +1,55 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+
+
+
+#some numbers of some colors
+
+Red: #FF0000
+Green: #00FF00
+Blue: #0000FF
+Yellow: #FFFF00
+Cyan: #00FFFF
+Magenta: #FF00FF
+Black: #000000
+White: #FFFFFF
+Gray: #808080
+Dark Red: #8B0000
+Light Blue: #ADD8E6
+Purple: #800080
+Orange: #FFA500
+Pink: #FFC0CB

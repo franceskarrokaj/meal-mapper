@@ -5,6 +5,7 @@ import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function Categories({
     activeCategory, 
+    searchCategory,
     categories, 
     handleChangeCategory
 }) {
@@ -22,6 +23,7 @@ export default function Categories({
             >
     {categories.map((category, index) => {
         let isActive = category.strCategory == activeCategory;
+        let isSearched = category.strCategory == activeCategory;
     
         return (
             <View key={index} style={{ marginRight: hp(2), alignItems: 'center' }}>
@@ -30,6 +32,7 @@ export default function Categories({
                     style={{
                         borderRadius: 10,
                         backgroundColor: isActive ? 'orange' : 'gray',
+                        backgroundColor: isSearched ? 'orange' : 'gray',
                     }}
                 >
                     <View style={{padding: 6, borderRadius: 1}}>   
@@ -48,7 +51,9 @@ export default function Categories({
                     <Text
                         style= {{
                             fontSize: hp(1.6),
-                            color: isActive ? 'orange' : 'black'
+                            color: isActive ? 'orange' : 'black',
+                            color: isSearched ? 'orange' : 'black'
+                            
                         }}
                     > 
                             {category.strCategory}

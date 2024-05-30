@@ -14,18 +14,21 @@ export default function HomeScreen() {
     const [meals, setMeals] = useState([]);
     const [activeCategory, setActiveCategory] = useState('Beef');
     const [categories, setCategories] = useState([]);
+    const [searchedCategory, setSearchedCategory] = useState('Beef')
 
     useEffect(() => {
         if (searchText) {
             getRecipes(undefined, searchText);
         } else {
-            getRecipes(activeCategory);
+            getCategories(searchedCategory);
         }
-    }, [searchText]);
-    
+    }, [searchText, searchedCategory]);
+
     const handleChangeCategory = (category) => {
+        setSearchText('');
         getRecipes(category);
         setActiveCategory(category);
+        setSearchedCategory(category)
         setMeals([]);
     }
 
@@ -48,7 +51,7 @@ export default function HomeScreen() {
         try {
             let url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
             if (searchTerm) {
-                url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`;
+                url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${searchTerm}`;
             }
             const response = await axios.get(url);
             if (response && response.data) {
@@ -58,7 +61,7 @@ export default function HomeScreen() {
             console.error(error.message);
         }
     };
-
+    
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
             <StatusBar style="dark" />
@@ -149,7 +152,7 @@ export default function HomeScreen() {
                         {categories.length > 0 && (
                             <Categories
                                 categories={categories}
-                                activeCategory={activeCategory}
+                                searchedCategory={searchedCategory}
                                 handleChangeCategory={handleChangeCategory}
                             />
                         )}
